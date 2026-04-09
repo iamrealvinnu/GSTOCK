@@ -87,16 +87,16 @@ Local URL: `http://localhost:5173`
 
 ---
 
-## ☁️ Deployment
+## ☁️ Deployment & Environment Variables
 
-### Frontend (Netlify)
-This project is configured for seamless deployment on **Netlify**. 
-- **Build Command:** `npm run build`
-- **Publish Directory:** `frontend/dist`
-- **Base Directory:** `frontend/`
+### 1. Backend (API)
+When you deploy your backend (to Render, Railway, etc.):
+- Set `ALLOWED_ORIGINS` to your Netlify URL (e.g., `https://your-site.netlify.app`) to ensure security.
 
-### Backend
-The backend can be deployed to **Render**, **Railway**, or any **Docker**-compatible hosting provider.
+### 2. Frontend (Netlify)
+In your Netlify Project Settings (**Site configuration > Environment variables**):
+- Add `VITE_API_BASE_URL` and set it to your **deployed backend URL** (e.g., `https://gstock-api.onrender.com`).
+- *Important:* If you don't set this, the frontend will default to `localhost`, and other people won't see your data!
 
 ---
 

@@ -1,6 +1,7 @@
 from fastapi import FastAPI, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from typing import List
+import os
 from . import crud, models, schemas
 from .database import engine, get_db
 from fastapi.middleware.cors import CORSMiddleware
@@ -10,10 +11,15 @@ models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="GHOPE Medical Stock Inventory API")
 
-# Enable CORS for React frontend
+# Configure CORS
+# In production, set ALLOWED_ORIGINS to your Netlify URL (e.g. "https://your-site.netlify.app")
+# Multiple origins can be comma-separated: "http://localhost:5173,https://your-site.netlify.app"
+allowed_origins_raw = os.getenv("ALLOWED_ORIGINS", "*")
+allowed_origins = allowed_origins_raw.split(",") if allowed_origins_raw != "*" else ["*"]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=allowed_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

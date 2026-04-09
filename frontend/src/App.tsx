@@ -54,7 +54,7 @@ import { QueryClient, QueryClientProvider, useQuery, useMutation, useQueryClient
 import { ThemeProvider, createTheme, alpha } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 
-const API_BASE_URL = 'http://localhost:8000';
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
 const queryClient = new QueryClient();
 
 // --- THEME ---
