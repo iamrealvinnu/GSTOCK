@@ -24,18 +24,15 @@ import {
   ListItemIcon,
   ListItemText,
   Divider,
-  Tooltip,
   LinearProgress
 } from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid/DataGrid';
-import type { GridColDef, GridRenderCellParams } from '@mui/x-data-grid';
+import type { GridColDef } from '@mui/x-data-grid';
 import { 
   Plus, 
   Minus,
   AlertCircle, 
-  Package, 
   Clock, 
-  TrendingDown, 
   Search,
   Download,
   Users,
@@ -50,7 +47,6 @@ import {
   IndianRupee,
   Activity,
   Stethoscope,
-  LogOut,
   AlertOctagon
 } from 'lucide-react';
 import axios from 'axios';
