@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+sqlalchemy
+pydantic
+python-multipart
+alembic
+pytest
+httpx
+# pyodbc  # Uncomment for Azure SQL (requires local drivers)
